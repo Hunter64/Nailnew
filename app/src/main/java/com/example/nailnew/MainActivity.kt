@@ -19,13 +19,13 @@ class MainActivity : AppCompatActivity() {
         //---------------------------------------------------------------------
 
         //SnackBar (2 examples)
-        val layout = findViewById<ConstraintLayout>(R.id.constraint)
+        //val layout = findViewById<ConstraintLayout>(R.id.constraint)
 
         //Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).show()
 
-        Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).setAction("Undo Changes!"){
-            Log.w(" -> SnackBar", "Add Function / Action here! for Click Undo Changes!")
-            Snackbar.make(layout, "Action has been restored!", Snackbar.LENGTH_LONG).show()
-        }.show()
+        //Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).setAction("Undo Changes!"){
+        //    Log.w(" -> SnackBar", "Add Function / Action here! for Click Undo Changes!")
+        //    Snackbar.make(layout, "Action has been restored!", Snackbar.LENGTH_LONG).show()
+        //}.show()
     }
 }
