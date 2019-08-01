@@ -14,18 +14,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Toast
-        //Toast.makeText(this, "Hello from the Toast!", Toast.LENGTH_LONG).show()
-
-        //---------------------------------------------------------------------
+        fun showToast(){
+            Toast.makeText(this, "Hello from the Toast!", Toast.LENGTH_LONG).show()
+        }
 
         //SnackBar (2 examples)
-        //val layout = findViewById<ConstraintLayout>(R.id.constraint)
+        val layout = findViewById<ConstraintLayout>(R.id.constraint)
+        fun showSnackBar1(){
+            Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).show()
+        }
 
-        //Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).show()
+        fun showSnackBar2(){
+            Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).setAction("Undo Changes!"){
+                Log.w(" -> SnackBar", "Add Function / Action here! for Click Undo Changes!")
+                Snackbar.make(layout, "Action has been restored!", Snackbar.LENGTH_LONG).show()
+            }.show()
+        }
 
-        //Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).setAction("Undo Changes!"){
-        //    Log.w(" -> SnackBar", "Add Function / Action here! for Click Undo Changes!")
-        //    Snackbar.make(layout, "Action has been restored!", Snackbar.LENGTH_LONG).show()
-        //}.show()
     }
 }
