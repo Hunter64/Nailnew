@@ -9,6 +9,24 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".activities.SharedPreferencesActivity">
+        </activity>
+        <activity android:name=".activities.PicassoActivity">
+        </activity>
+        <activity android:name=".activities.PermissionsActivity">
+        </activity>
+        <activity android:name=".activities.ListViewActivity">
+        </activity>
+        <activity android:name=".activities.LifeCycleActivity">
+        </activity>
+        <activity android:name=".activities.KotlinAndroidExtensionActivity">
+        </activity>
+        <activity android:name=".activities.IntentsActivity">
+        </activity>
+        <activity android:name=".activities.ExtensionFunctionsActivity">
+        </activity>
+        <activity android:name=".activities.ClickEventsActivity">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
