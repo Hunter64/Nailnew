@@ -32,9 +32,9 @@ class ClickEventsActivity : AppCompatActivity(), View.OnLongClickListener {
     //Click XML
     //Obligatory rule to click in xml
     //The function should be public, the names should be same than file class and xml file and this receive only one parameter (View)
-    fun xmlClick(view: View){
-        Toast.makeText(this, "Click by XML!", Toast.LENGTH_SHORT).show()
-    }
+//    fun xmlClick(view: View){
+//        Toast.makeText(this, "Click by XML!", Toast.LENGTH_SHORT).show()
+//    }
 
     //Click InLine
     private fun clickInLine(){

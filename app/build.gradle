@@ -37,4 +37,7 @@ dependencies {
     //implementation for SnackBars
     implementation 'com.android.support:design:29.0.1'
 
+    //implementation for Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
 }
