@@ -30,7 +30,11 @@ class IntentsActivity : AppCompatActivity() {
     //Flags
     private fun goIntentFlags(){
         val intent = Intent(this, IntentExtrasActivity::class.java)
+        //intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY // -> Don't save the activity's history into stack
+        //intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION // -> Without animation
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Delete next activity or delete all activity stack with this last when we click back button we out app
         startActivity(intent)
+        //finish() // - > Destroy this intent activity and not add to stack history
     }
 
     //Objects

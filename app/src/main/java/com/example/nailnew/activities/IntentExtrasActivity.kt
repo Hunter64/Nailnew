@@ -1,5 +1,6 @@
 package com.example.nailnew.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,10 @@ class IntentExtrasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent_extras)
+
+        buttonBack.setOnClickListener { startActivity(Intent(this, IntentsActivity::class.java)) }// -> Back to IntentsActivity from this Intent Extras Activity
+        // When we use button back this destroy the activity that using in this moment, we don't want destroy this, only add back stack with this button back
+
         getIntentExtrasFromPreviousActivity()
     }
 
