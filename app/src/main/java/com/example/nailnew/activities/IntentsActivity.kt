@@ -20,6 +20,10 @@ class IntentsActivity : AppCompatActivity() {
     //Extras
     private fun goIntentExtras(){
         val intent = Intent(this, IntentExtrasActivity::class.java)
+        intent.putExtra("name", "Victor")
+        intent.putExtra("lastName", "Abc")
+        intent.putExtra("age", 45)
+        intent.putExtra("developer", true)
         startActivity(intent)
     }
 
