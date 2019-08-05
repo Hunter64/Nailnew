@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.nailnew.R
+import com.example.nailnew.models.Student
 import kotlinx.android.synthetic.main.activity_intent_extras.*
 
 class IntentExtrasActivity : AppCompatActivity() {
@@ -17,10 +18,31 @@ class IntentExtrasActivity : AppCompatActivity() {
         buttonBack.setOnClickListener { startActivity(Intent(this, IntentsActivity::class.java)) }// -> Back to IntentsActivity from this Intent Extras Activity
         // When we use button back this destroy the activity that using in this moment, we don't want destroy this, only add back stack with this button back
 
-        getIntentExtrasFromPreviousActivity()
+        val isExtraSet = setIntentExtrasFromPreviousActivity()
+        val isParcelableSet =  setParcelableExtraFromPreviousActivity()
+
+        if(!isExtraSet && !isParcelableSet){
+            //Here validate if extra and parcelable is false the checkbox is invisible
+            //This show in extra and object intents but not in flags
+            checkBoxDeveloper.visibility = View.INVISIBLE
+        }
     }
 
-    private fun getIntentExtrasFromPreviousActivity(){
+    private fun setParcelableExtraFromPreviousActivity(): Boolean{
+        val student = intent.getParcelableExtra<Student>("student") // The key is "student", this is for intent for objects
+        //if(student != null){ // This conditional is same than this -> student?.let { }
+        student?.let {
+            textViewName.text = student.name
+            textViewLastName.text = student.lastName
+            textViewAge.text = student.age.toString()
+            checkBoxDeveloper.text = "Developer"
+            checkBoxDeveloper.isChecked = student.isDeveloper
+            return true
+        }
+        return false
+    }
+
+    private fun setIntentExtrasFromPreviousActivity(): Boolean{
         //Here receive values from intents activity
         val name = intent.getStringExtra("name") // -> name from getStringExtra is nullable, so is String? type
         val lastName = intent.getStringExtra("lastName") // -> lastName from getStringExtra is nullable, so is String? type, same case than name
@@ -35,10 +57,9 @@ class IntentExtrasActivity : AppCompatActivity() {
             textViewAge.text = "$age"
             checkBoxDeveloper.text = "Developer"
             checkBoxDeveloper.isChecked = developer
-        }else{
-            checkBoxDeveloper.visibility = View.INVISIBLE
-
+            return true
         }
+        return false
     }
 
 }
