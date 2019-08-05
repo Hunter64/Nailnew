@@ -4,22 +4,28 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.Toolbar
 import com.example.nailnew.R
 import com.example.nailnew.models.Student
+import com.example.nailnew.others.ToolbarActivity
 import kotlinx.android.synthetic.main.activity_intent_extras.*
 
-class IntentExtrasActivity : AppCompatActivity() {
+class IntentExtrasActivity : ToolbarActivity() {
 //In this activity, we receive values from intents activity and show in the text view and checkbox
 
     //Access to layout toolbar
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    //private lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent_extras)
 
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        //new toolbar
+        toolbarToLoad(toolbar as Toolbar)
+        enableHomeDisplay(true) //the behaviors is a manifest file
+
+        //toolbar = findViewById(R.id.toolbar)
+        //setSupportActionBar(toolbar)
 
         buttonBack.setOnClickListener { startActivity(Intent(this, IntentsActivity::class.java)) }// -> Back to IntentsActivity from this Intent Extras Activity
         // When we use button back this destroy the activity that using in this moment, we don't want destroy this, only add back stack with this button back
@@ -28,7 +34,7 @@ class IntentExtrasActivity : AppCompatActivity() {
         val isExtraSet = setIntentExtrasFromPreviousActivity()
         val isParcelableSet =  setParcelableExtraFromPreviousActivity()
         // Arrow return to main, if this function is shadow is nullable, with double exclamation we know that never is it null
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         if(!isExtraSet && !isParcelableSet){
             //Here validate if extra and parcelable is false the checkbox is invisible

@@ -9,12 +9,13 @@ import android.widget.Toast
 import android.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.nailnew.activities.*
+import com.example.nailnew.others.ToolbarActivity
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ToolbarActivity() {
 
-    //Access to layout toolbar
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +40,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         // Add toolbar in top app menu
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        toolbarToLoad(toolbar as androidx.appcompat.widget.Toolbar)
 
         //Variables to buttons
         val btnLifeCycle = findViewById<Button>(R.id.button_to_cycle)
