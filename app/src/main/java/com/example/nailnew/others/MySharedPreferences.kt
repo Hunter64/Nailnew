@@ -6,7 +6,8 @@ class MySharedPreferences (context: Context){
     //Using Shared Preferences with Kotlin
 
     //file's name of shared preferences
-    private val fileName = "my_preferences"
+    private val fileName = "my_preferences" // This name is in Device File Explorer in package of project, shared_prefs. We can create many class file like this preferences, with differences
+                            //When access this file in device file explorer, is data that input
 
     //instance to file
     private val prefs = context.getSharedPreferences(fileName, Context.MODE_PRIVATE) // -> mode private to only our app can read this
