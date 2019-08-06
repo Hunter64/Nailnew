@@ -23,7 +23,24 @@ class PermissionsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_permissions)
 
-        buttonPicture.setOnClickListener { getPictureFromCameraAskingPermissions() }
+        //buttonPicture.setOnClickListener { getPictureFromCameraAskingPermissions() } // -> Invoke take a photo with permission
+        buttonPicture.setOnClickListener { getPictureFromCameraWithoutAskPermissions() } // -> Invoke take a photo without permission
+    }
+
+    //Take a photo without permission
+    private fun getPictureFromCameraWithoutAskPermissions() {
+        //The rest of permission is inevitable, this use the intent of camera because we pass without permission
+        //Sure that aren't permissions of camera in manifest, if they exist, the app will crash
+        //Create intent to take a photo
+        val pictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        //Check that we can use the capture of photo (we have camera and his app)
+        if(pictureIntent.resolveActivity(packageManager) != null){
+            //Ok, we have camera and his app
+            startActivityForResult(pictureIntent, requestCameraPicture)
+        }else{
+            //Ok, we not have camera and his app, so isn't activity to manager this intent
+            Toast.makeText(this, "App camera isn't exist!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun getPictureFromCameraAskingPermissions() {
