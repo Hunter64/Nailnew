@@ -6,33 +6,41 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.nailnew.activities.*
+import com.example.nailnew.others.ToolbarActivity
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ToolbarActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //Toast
-        fun showToast() {
-            Toast.makeText(this, "Hello from the Toast!", Toast.LENGTH_LONG).show()
-        }
+//        fun showToast() {
+//            Toast.makeText(this, "Hello from the Toast!", Toast.LENGTH_LONG).show()
+//        }
 
         //SnackBar (2 examples)
-        val layout = findViewById<ConstraintLayout>(R.id.constraint)
-        fun showSnackBar1() {
-            Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).show()
-        }
+//        val layout = findViewById<ConstraintLayout>(R.id.constraint)
+//        fun showSnackBar1() {
+//            Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).show()
+//        }
+//
+//        fun showSnackBar2() {
+//            Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).setAction("Undo Changes!") {
+//                Log.w(" -> SnackBar", "Add Function / Action here! for Click Undo Changes!")
+//                Snackbar.make(layout, "Action has been restored!", Snackbar.LENGTH_LONG).show()
+//            }.show()
+//        }
 
-        fun showSnackBar2() {
-            Snackbar.make(layout, "Hello from the SnackBar!", Snackbar.LENGTH_LONG).setAction("Undo Changes!") {
-                Log.w(" -> SnackBar", "Add Function / Action here! for Click Undo Changes!")
-                Snackbar.make(layout, "Action has been restored!", Snackbar.LENGTH_LONG).show()
-            }.show()
-        }
+        // Add toolbar in top app menu
+        toolbarToLoad(toolbar as androidx.appcompat.widget.Toolbar)
 
         //Variables to buttons
         val btnLifeCycle = findViewById<Button>(R.id.button_to_cycle)

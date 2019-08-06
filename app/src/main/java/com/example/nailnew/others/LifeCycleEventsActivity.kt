@@ -1,4 +1,4 @@
-package com.example.nailnew.activities
+package com.example.nailnew.others
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
