@@ -2,11 +2,9 @@ package com.example.nailnew.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.nailnew.MainActivity
 import com.example.nailnew.R
-import com.example.nailnew.others.isNatural
-import com.example.nailnew.others.loadByUrl
-import com.example.nailnew.others.snackBar
-import com.example.nailnew.others.toast
+import com.example.nailnew.others.*
 import kotlinx.android.synthetic.main.activity_extension_functions.*
 
 class ExtensionFunctionsActivity : AppCompatActivity() {
@@ -25,6 +23,7 @@ class ExtensionFunctionsActivity : AppCompatActivity() {
 
         buttonSnackBar.setOnClickListener { snackBar("I love extension function!", action = "Undo") { toast("Undo!!!") } }
         buttonLoadByUrl.setOnClickListener { imageViewLoadedByUrl.loadByUrl("https://udemy-images.udemy.com/course/480x270/1325930_f5f6_3.jpg") }
-        buttonGoToActivity.setOnClickListener {  }
+        //buttonGoToActivity.setOnClickListener { goToActivity<MainActivity> { putExtra("id", 1)} } // -> This is intent with extras
+        buttonGoToActivity.setOnClickListener { goToActivity<MainActivity> { }} // -> This is intent without extras
     }
 }

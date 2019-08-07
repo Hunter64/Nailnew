@@ -37,9 +37,18 @@ fun ViewGroup.inflate(layoutId: Int) = LayoutInflater.from(context).inflate(layo
 fun ImageView.loadByUrl(url: String) = Picasso.with(context).load(url).into(this)
 
 
-inline fun <reified T:Activity> Activity.goToActivity(init: Intent.() -> Unit){ //Callback of intent restricted
-    val intent = Intent(this, T::class.java)
+inline fun <reified T:Activity> Activity.goToActivity(noinline init: Intent.() -> Unit = {}){ //Callback of intent restricted, by default this empty intent
+    val intent = Intent(this, T::class.java) //for use this function we should put reified in T for use generic
+    //inline -> don't create a function, so compile code and render
     intent.init()
     startActivity(intent)
+}
+
+//Go activity with result
+fun Activity.goToActivityResult(action: String, requestCode: Int, init: Intent.() -> Unit = {}){
+    //val intent(MediaStore.ACTION_IMAGE_CAMERA)
+    val intent = Intent(action)
+    intent.init()
+    startActivityForResult(intent, requestCode)
 }
 
